@@ -6,7 +6,8 @@ require('dotenv').config()
 const {API_KEY} = process.env
 const  getAllGames = async () => {
    const response = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`)
-   return response.data.results
+   const BddResponse = await Videogame.findAll()
+   return [response.data.results, BddResponse]
 }
 
 

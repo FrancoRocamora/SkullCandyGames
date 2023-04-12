@@ -16,21 +16,23 @@ vgRouter.get('/', async (req, res) => {
     }
 })
 
-vgRouter.get('/:id', async (req, res) => {
+vgRouter.get('/game', async (req, res) => {
     try {
-        const response = await getGameDetails(2)
+        const {name} = req.query
+        const response = await getGameByNames(name)
         res.status(200).json(response)
     } catch (error) {
-        res.status(404).json({error: error.message})
+        res.status(400).json({error: error.message})
     }
 })
 
-vgRouter.get('/name?=', async (req, res) => {
+vgRouter.get('/:id', async (req, res) => {
     try {
-        
-        const response = await getGameByNames()
+        const data = req.params
+        const response = await getGameDetails(data.id)
+        res.status(200).json(response)
     } catch (error) {
-        res.status(400).json({error: error.message})
+        res.status(404).json({error: error.message})
     }
 })
 
