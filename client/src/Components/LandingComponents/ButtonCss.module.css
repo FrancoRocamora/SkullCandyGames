@@ -1,0 +1,11 @@
+.button{
+    width: 15vh;
+    height: 7vh;
+    align-self: first baseline;
+    margin: 15vh;
+    border: none;
+    background-color:transparent;
+    font-size: 10vh;
+  
+}
+

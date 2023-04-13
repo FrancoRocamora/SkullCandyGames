@@ -1,0 +1,7 @@
+.searchBar{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1vh;
+    height: 6vh;
+    background-color: #AECBB3ff;
+}

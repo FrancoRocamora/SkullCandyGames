@@ -16,6 +16,7 @@ vgRouter.get('/', async (req, res) => {
     }
 })
 
+
 vgRouter.get('/game', async (req, res) => {
     try {
         const {name} = req.query
@@ -35,7 +36,6 @@ vgRouter.get('/:id', async (req, res) => {
         res.status(404).json({error: error.message})
     }
 })
-
 //Post requests
 vgRouter.post('/', async (req, res) => {
     try {

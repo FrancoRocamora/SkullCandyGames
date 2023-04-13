@@ -1,0 +1,17 @@
+.Background{
+    position:absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-position: center;
+    background-image: url('../../Images/LandingBackground.jpg');
+    background-size: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    background-attachment: fixed;
+    image-rendering: optimizeQuality;
+    background-repeat: no-repeat;
+    
+}

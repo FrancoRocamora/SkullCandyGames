@@ -3,9 +3,13 @@ require('dotenv').config()
 const {API_KEY} = process.env
 const {Videogame} = require('../db')
 const  getGameDetails = async (id) => {
-   const response = await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`)
-   const responseBDD = await Videogame.findByPk()
-   return response.data
+   if(id.length === 36) {
+      const responseBDD = await Videogame.findByPk()
+      return responseBDD
+   }else {
+      const response = await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`)
+      return response.data
+   } 
 }
 
 
