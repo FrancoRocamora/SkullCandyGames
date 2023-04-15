@@ -1,11 +1,15 @@
 import styles from './ButtonCss.module.css'
 import {useNavigate }from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { getInfo, getGenres } from '../../Redux/Actions';
 
-
-
-function Button(){
+function Button(props){
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const access = () => {
+        props.getStarted()
+        dispatch(getInfo())
+        dispatch(getGenres())
         navigate('/home')
     }
 

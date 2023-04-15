@@ -3,7 +3,7 @@ import Background from "../Components/LandingComponents/Background"
 
 function LandingView(props) {
   return(
-    <Background></Background>
+    <Background getStarted={props.getStarted}></Background>
   )
 }
 

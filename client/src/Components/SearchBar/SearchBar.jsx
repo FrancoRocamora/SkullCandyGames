@@ -3,10 +3,10 @@ import styles from './SearchBar.module.css'
 function SearchBar(){
     return(
         <div className={styles.searchBar}>
-            <button className={styles.buttonHome}>Home</button>
-            <button className={styles.buttonFavorites}>Favorites</button>
-            <button className={styles.buttonMyGames}>My Games</button>
-            <input type='text' className={styles.input}></input>
+            <button className={styles.button}>Home</button>
+            <button className={styles.button}>Favorites</button>
+            <button className={styles.button}>My Games</button>
+            <input type='text' spellCheck={false} className={styles.input}></input>
         </div>
     )
 }

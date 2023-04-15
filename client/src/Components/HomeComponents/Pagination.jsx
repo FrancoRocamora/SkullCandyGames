@@ -3,8 +3,6 @@ import styles from './Pagination.module.css'
 function Pagination({gamesPerPage, currentPage, setCurrentPage, totalGames}){
 
     const pageNumbers = []
-    console.log(totalGames)
-    console.log(gamesPerPage)
     for(let i = 1; i <= Math.ceil(totalGames / gamesPerPage); i++){
         pageNumbers.push(i)
     }

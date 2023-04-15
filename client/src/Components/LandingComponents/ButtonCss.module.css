@@ -1,11 +1,30 @@
 .button{
-    width: 15vh;
-    height: 7vh;
+    width: fit-content;
+    height: fit-content;
     align-self: first baseline;
-    margin: 15vh;
+    margin: 25vh 3vh;
     border: none;
     background-color:transparent;
     font-size: 10vh;
-  
+    animation: 4s infinite buttonAnim;
+    
 }
+.button:hover{
+    cursor:pointer;
+}
+@keyframes buttonAnim {
+    0%{
+        text-shadow: 0px 0px 0px #000;
 
+    }
+    30%{
+        text-shadow:  6px 10px  2px #000;
+        color: #fff;
+    }
+    100%{
+        text-shadow:  5x 8px 10px #000;
+
+    }
+    
+
+}

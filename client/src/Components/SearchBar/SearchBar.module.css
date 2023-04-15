@@ -3,5 +3,66 @@
     justify-content: space-evenly;
     padding: 1vh;
     height: 6vh;
-    background-color: #AECBB3ff;
+    width: 100%;
+    background-color: #76DDE8ff;
+    border: 1px solid #4ABCDEff;
+    position:fixed;
+    z-index: 1;
 }
+
+.button{
+    background-color:#4ABCDEff ;
+    border-radius: 5vh;
+    padding: 0vh 2vh;
+    text-justify: center;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    font-size: 2.5vh;
+    border: none;
+    box-shadow: inset 0px 0px 10px 3px rgb(67, 157, 167);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.input{
+    background-color:#4ABCDEff ;
+    border-radius: 5vh;
+    padding: 0vh 2vh;
+    text-justify: center;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    font-size: 2.5vh;
+    border: none;
+    text-decoration: none;
+    box-shadow: inset 0px 0px 10px 3px rgb(67, 157, 167);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.button:hover{
+    cursor: pointer;
+    animation: 2s  buttonAnimation ;
+    animation-iteration-count: infinite;
+}
+
+@keyframes buttonAnimation {
+    0%{
+        box-shadow: inset 0px 0px 10px 3px rgb(67, 157, 167);
+       
+    }
+    50%{ box-shadow:  1px 1px 3px  rgb(249, 250, 250);
+        background-color: white;
+        
+    }
+    60%{
+        color: #4ABCDEff;
+    }
+    70%{
+        box-shadow: inset 0px 0px 10px 3px rgb(67, 157, 167);  
+    }
+
+    85%{
+        color: white;
+    }
+}
+

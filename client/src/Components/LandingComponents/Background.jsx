@@ -1,9 +1,9 @@
 import Button from "./Button"
 import styles from './BackgroundCss.module.css'
-function Background(){
+function Background(props){
     return(
         <div className={styles.Background}>
-           <Button></Button>
+           <Button getStarted={props.getStarted}></Button>
         </div>
     )
 

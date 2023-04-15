@@ -24,7 +24,8 @@ const  getAllGames = async () => {
                   plataform: game.platafrom,
                   minimum: game.minimum,
                   recomended: game.recomended,
-                  stroes: game.stores})
+                  stroes: game.stores,
+                  genre: game.genre})
                  })
             }
             )

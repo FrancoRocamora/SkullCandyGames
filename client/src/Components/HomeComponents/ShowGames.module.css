@@ -1,4 +1,6 @@
 .loading{
+ 
+  
     background-image: url(https://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-1.gif);
     background-position: center;
     background-repeat: no-repeat;
@@ -15,6 +17,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    
+    margin: 5vh 3vh 2vh 3vh;
+    padding: 3vh;
 }
 
