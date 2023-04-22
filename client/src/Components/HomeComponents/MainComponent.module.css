@@ -1,8 +1,12 @@
 .background{
-    position: absolute;
+    position: static;
     background-position:center;
-    background-color: rgb(102, 206, 255);
+    /*background-image: url('../../Images/Background_city.jpg');*/
+    background-color: rgb(39, 39, 80);
+    /*background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-2210775-jpeg.jpg");*/
     background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
     width:100%;
     height: 100%;
 }

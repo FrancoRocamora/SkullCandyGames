@@ -20,6 +20,7 @@ vgRouter.get('/', async (req, res) => {
 vgRouter.get('/game', async (req, res) => {
     try {
         const {name} = req.query
+        console.log(name)
         const response = await getGameByNames(name)
         res.status(200).json(response)
     } catch (error) {
@@ -40,8 +41,9 @@ vgRouter.get('/:id', async (req, res) => {
 vgRouter.post('/', async (req, res) => {
     try {
         const data = req.body
+        console.log(data)
         const response = await PostGame(data)
-        res.status(400).json(response)
+        res.status(200).json(response)
     } catch (error) {
         res.status(400).json({error: error.message})
     }

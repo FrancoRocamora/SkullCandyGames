@@ -4,38 +4,59 @@
     padding: 1vh;
     height: 6vh;
     width: 100%;
-    background-color: #76DDE8ff;
-    border: 1px solid #4ABCDEff;
+    box-shadow: inset 0px 0px 2px 2px rgb(119, 132, 241);
+    background-color: rgb(152,163,255);
+    border: 1px solid rgb(119, 132, 241);
     position:fixed;
     z-index: 1;
+    border-radius: 3vw;
+    
+}
+
+
+.buttonSubmit{
+    background-color:rgb(152,163,255);
+    border-radius: 5vh;
+    padding: 0vh 2vh;
+    height: 6vh;
+    text-justify: center;
+    text-align: center;
+    font-weight: bold;
+    color: white ;
+    font-size: 2.5vh;
+    border: none;
+    box-shadow: inset 0px 0px 10px 3px rgb(119, 132, 241) ;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .button{
-    background-color:#4ABCDEff ;
+    background-color:rgb(152,163,255);
     border-radius: 5vh;
     padding: 0vh 2vh;
     text-justify: center;
     text-align: center;
     font-weight: bold;
-    color: white;
+    color: white ;
     font-size: 2.5vh;
     border: none;
-    box-shadow: inset 0px 0px 10px 3px rgb(67, 157, 167);
+    box-shadow: inset 0px 0px 10px 3px rgb(119, 132, 241) ;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .input{
-    background-color:#4ABCDEff ;
+    background-color:white;
     border-radius: 5vh;
     padding: 0vh 2vh;
     text-justify: center;
     text-align: center;
     font-weight: bold;
-    color: white;
+    color: #4ABCDEff ;
     font-size: 2.5vh;
+    margin-right: 1.5vw;
     border: none;
+    height: 6vh;
     text-decoration: none;
-    box-shadow: inset 0px 0px 10px 3px rgb(67, 157, 167);
+    box-shadow: inset 0px 0px 10px 3px rgb(119, 132, 241);
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -66,3 +87,31 @@
     }
 }
 
+
+.buttonSubmit:hover{
+    animation: 2s infinite gradientAnim
+}
+
+@keyframes gradientAnim {
+    0%{
+        box-shadow: inset 0px 0px rgb(255, 255, 255);
+        
+    }
+    50%{
+        box-shadow: inset 80px 0px   white;
+    }
+    51%{
+        color: #4ABCDEff;
+        background-color: rgb(255, 255, 255);
+        box-shadow: none;
+       
+    }
+
+    90%{
+        box-shadow: inset 80px 0px  rgb(119, 132, 241);
+    }
+
+    100%{
+        box-shadow: inset 80px 0px  rgb(119, 132, 241);
+    }
+}

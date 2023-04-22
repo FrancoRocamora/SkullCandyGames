@@ -1,0 +1,116 @@
+.form{
+    z-index: 1;
+    position: absolute;
+    margin: 0vh;
+    padding: 0;
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-2210775-jpeg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    overflow-y: scroll;
+}
+
+
+.container{
+    margin-top: 10vh;
+    background-color: #f8f4e5;
+    padding: 50px 100px;
+    border: 2px solid rgba(0,0,0,1);
+    box-shadow: 15px 15px 1px #ffa580, 15px 15px 1px 2px rgba(0,0,0,1)
+}
+
+
+
+.labels{
+margin: 1vh;
+padding: 1vh;
+}
+
+.inputs{
+    display: block;
+    width: 100%;
+    font-size: 14pt;
+    line-height: 28pt;
+    font-family: 14pt;
+    margin-bottom: 28pt;
+    border: none;
+    border-bottom: 5px solid rgba(0,0,0,1);
+    background-color:  #f8f4e5;
+    min-width: 250px;
+    padding-left: 5px;
+    outline: none;
+    color: rgba(0,0,0,1);
+}
+
+.inputs:focus{
+    border-bottom: 5px solid #ffa580
+}
+
+.submitBtn{
+    margin: 10vh 0vw 0vh 15vw;
+    display: block;
+  line-height: 28pt;
+  padding: 0 20px;
+  background: #ffa580;
+  letter-spacing: 2px;
+  transition: .2s all ease-in-out;
+  outline: none;
+  border: 1px solid rgba(0,0,0,1);
+  box-shadow: 3px 3px 1px 1px #95a4ff, 3px 3px 1px 2px rgba(0,0,0,1)
+}
+
+.submitBtn:hover{
+    background: rgba(0,0,0,1);
+    color: white;
+    border: 1px solid rgba(0,0,0,1);
+    
+}
+
+.submitBtn::selection{
+    background: #ffc8ff;
+}
+
+.inputs:-webkit-autofill,
+.inputs:-webkit-autofill:hover, 
+.inputs:-webkit-autofill:focus{
+    border-bottom: 5px solid #95a4ff;
+    -webkit-text-fill-color: #2A293E;
+    -webkit-box-shadow: 0 0 0px 1000px #f8f4e5 inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.errors{
+    color: red;
+}
+
+.checkbox{
+    margin-top: 1vh;
+    display: inline;
+}
+.eachGenre{
+    padding: 1vh;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    background: #ffa580;
+    letter-spacing: 2px;
+    outline: none;
+    margin: 1vh;
+    border: 1px solid rgba(0,0,0,1);
+    box-shadow: 3px 3px 1px 1px #95a4ff, 3px 3px 1px 2px rgba(0,0,0,1)
+}
+
+.genresContainer {
+    margin: 4vh 1vw;
+    display: flex;
+    justify-content:  baseline;
+    flex-wrap: wrap;
+    max-width: 50vw;
+    min-width: 25vw;
+    overflow-y: scroll;
+    max-height: 23vh;
+}

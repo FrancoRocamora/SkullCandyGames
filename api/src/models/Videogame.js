@@ -13,24 +13,44 @@ module.exports = (sequelize) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true
     },
     description: {
-      type: DataTypes.TEXT
+      type: DataTypes.TEXT,
+      allowNull: false
     },
-    plataforms: {
-      type: DataTypes.ARRAY(DataTypes.STRING)
-    },
-    image: {
-      type: DataTypes.STRING(100),
-      Unique: true
-    },
-    release_Date: {
-      type: DataTypes.DATEONLY,
-     
+
+    background_image: {
+      type: DataTypes.TEXT,
+      allowNull: false
     },
     rating: {
-      type: DataTypes.DECIMAL(10, 2),
-      defaultValue: 0, 
+      type: DataTypes.STRING,
+      defaultValue: 0
+    },
+    developer: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    platforms: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    playtime: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    released: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    stores: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    tags: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   }, {timestamps: false});
 };

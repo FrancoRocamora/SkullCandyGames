@@ -1,23 +1,78 @@
 .loading{
- 
-  
-    background-image: url(https://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-1.gif);
+    position: absolute;
+    background-image: url('../../Images/CoolCatGif.gif');
     background-position: center;
     background-repeat: no-repeat;
-    background-color: rgb(102, 206, 255);
+    background-color: rgb(152,163,255);
     width:100%;
     height: 100%;
     display: flex;
     justify-content: center;
+    align-items: end;
     font-size: larger;
     color: white;
 }
+
+.sorts{
+    margin: 5vh;
+    display: flex;
+    justify-content: space-around;
+    align-self: baseline;
+    width: 100%;
+    padding: 1vh;
+    border-bottom: 1px solid black;
+}
+
+
+
+.button{
+    background-color:rgb(152,163,255);
+    border-radius: 5vh;
+    padding: 2vh 2vh;
+    text-justify: center;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    font-size: 2.5vh;
+    border: none;
+    box-shadow: inset 0px 0px 3px 3px rgba(3, 3, 3, 0.2);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.button:hover{
+    cursor: pointer;
+    animation: 2s  buttonAnimation ;
+    animation-iteration-count: infinite;
+}
+
 
 .gamesContainer{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    margin: 5vh 3vh 2vh 3vh;
+    margin: 0vh 3vh 0vh 3vh;
     padding: 3vh;
 }
 
+
+
+@keyframes buttonAnimation {
+    0%{
+        box-shadow: inset 0px 0px 10px 3px rgb(67, 157, 167);
+       
+    }
+    50%{ box-shadow:  1px 1px 3px  rgb(249, 250, 250);
+        background-color: white;
+        
+    }
+    60%{
+        color: #4ABCDEff;
+    }
+    70%{
+        box-shadow: inset 0px 0px 10px 3px rgb(67, 157, 167);  
+    }
+
+    85%{
+        color: white;
+    }
+}
