@@ -41,7 +41,6 @@ vgRouter.get('/:id', async (req, res) => {
 vgRouter.post('/', async (req, res) => {
     try {
         const data = req.body
-        console.log(data)
         const response = await PostGame(data)
         res.status(200).json(response)
     } catch (error) {

@@ -1,0 +1,23 @@
+.background{
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    background-color: rgb(5, 5, 23);
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.gamesContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 0vh 3vh 0vh 3vh;
+    padding: 5vh 0vw 0vh 0vw;
+}
+
+.emptyFavs{
+    position: absolute;
+    top: 40vh;
+    right: 43vw;
+    color: white;
+}

@@ -3,7 +3,6 @@ require('dotenv').config()
 const {API_KEY} = process.env
 const {Videogame, Genre} = require('../db')
 const  getGameDetails = async (id) => {
-   console.log(id)
    if(id.length === 36) {
       const responseBDD = await Videogame.findByPk(id, { include: {model: Genre,
          attributes: ['name'],

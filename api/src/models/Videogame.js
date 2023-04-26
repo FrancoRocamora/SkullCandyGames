@@ -25,7 +25,7 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     rating: {
-      type: DataTypes.STRING,
+      type: DataTypes.REAL,
       defaultValue: 0
     },
     developer: {
@@ -33,23 +33,19 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     platforms: {
-      type: DataTypes.STRING,
+      type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: true
     },
     playtime: {
-      type: DataTypes.STRING,
+      type: DataTypes.REAL,
       allowNull: true
     },
     released: {
-      type: DataTypes.STRING,
+      type: DataTypes.DATEONLY,
       allowNull: true
     },
-    stores: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     tags: {
-      type: DataTypes.STRING,
+      type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false
     }
   }, {timestamps: false});

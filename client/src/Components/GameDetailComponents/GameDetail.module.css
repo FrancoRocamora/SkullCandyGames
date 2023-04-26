@@ -1,0 +1,98 @@
+.all{
+    position: absolute;
+    background: linear-gradient(120deg, black, rgb(19, 197, 241));
+    font-size: 5vh; 
+    width: 100vw;  
+}
+
+
+
+.container{
+    padding: 1vh 0vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.gameTitle{
+    background-color: #f3ec78;
+    background-image: linear-gradient(120deg,#8c52ff,#00ffc9);
+    background-size: 120% 120%;
+    -webkit-text-fill-color: transparent; 
+    -webkit-background-clip: text;
+    font-size: 10vh;
+    padding: 1vh 1vw;
+    margin-top: 0vh;
+}
+
+.gameInfo{
+    position: relative;
+    border-radius: 3vh;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(120deg, rgb(69, 171, 255), transparent);
+    margin: 0vh 5vw 0vh 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+   
+}
+
+.subTitle{
+    background-color: rgba(0, 0, 0, 0.26);
+    margin: 4vh 2vw 4vh 2vw;
+    text-align: center;
+    border-radius: 1vh;
+}
+
+
+.dropdown{
+    font-size: large;
+    font-weight: bolder;
+    width: fit-content;
+    border: none;
+    border-radius: 1vh;
+    color: rgb(0, 0, 0);
+    width: 20vw;
+    height: 10vh;
+    margin: 2vh 1vh -4vh 6vh;
+    background: linear-gradient(120deg,#8c52ff,#00ffc9)
+}
+.listContainers{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.listItems{
+   color: rgb(0, 0, 0);
+   margin: 2vh 0vh 1vh 0vh;
+   font-size:large;
+}
+
+.uList{
+    position: relative;
+    background: linear-gradient(120deg,#8c52ff,#00ffc9);
+    border-radius: 1.5vh;
+    margin-left: 2.7vw;
+    width: 17vw;
+    height: 40vh;
+    overflow-y: scroll;
+}
+
+
+.description{
+    padding: 1vh 2vw;
+    border-radius: 3vh;
+    margin: 2vh 5vw 3vh 5vw;
+    height: 50vh;
+    overflow-y: scroll;
+    text-align: justify;
+    color: white;
+    padding-bottom: 4vh;
+    border: 1px solid rgb(2, 2, 2);
+    background: linear-gradient(120deg, black, rgba(255, 255, 255, 0))
+
+}
+

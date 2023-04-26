@@ -4,12 +4,16 @@
     justify-content: space-evenly;
     margin: 0vh 0vh 2vh 0vh;
     padding: 3vh;
-    background-position:center;
-    background-image: url("../../Images/Background_city.jpg");
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
+
     min-height: 100vh;;
 }
 
+.background{
+    
+    background-color: rgb(5, 5, 23);
 
+}
+
+.empty{
+    color: white;
+}

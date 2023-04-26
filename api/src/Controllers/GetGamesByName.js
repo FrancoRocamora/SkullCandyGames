@@ -10,7 +10,7 @@ const  getGamesByName = async (name) => {
       attributes: ['name'],
       through: {
             attributes: []
-      }}},{where: {name: {[Op.iLike]: `%${name}%`}}})
+      }}}, {where: {name: {[Op.iLike]: `%${name}%`}}})
    response.data.results.forEach(each => {
        finalResponse.push({name: each.name,
        background_image: each.background_image,
@@ -21,7 +21,6 @@ const  getGamesByName = async (name) => {
       })
  }
  )
- console.log(finalResponse)
    return [BddResponse, finalResponse].flat()
 }
 

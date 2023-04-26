@@ -1,117 +1,102 @@
+
+
 .searchBar{
     display: flex;
     justify-content: space-evenly;
     padding: 1vh;
     height: 6vh;
     width: 100%;
-    box-shadow: inset 0px 0px 2px 2px rgb(119, 132, 241);
-    background-color: rgb(152,163,255);
-    border: 1px solid rgb(119, 132, 241);
+    background-color: #8c52ff25;
     position:fixed;
     z-index: 1;
-    border-radius: 3vw;
+    
     
 }
 
 
 .buttonSubmit{
-    background-color:rgb(152,163,255);
-    border-radius: 5vh;
+    
+    background: linear-gradient(120deg,#8c52ff,#00ffc9);
+    background-size: 100% 100%;
+    border-radius: 0.5vh;
     padding: 0vh 2vh;
     height: 6vh;
     text-justify: center;
     text-align: center;
     font-weight: bold;
-    color: white ;
     font-size: 2.5vh;
     border: none;
-    box-shadow: inset 0px 0px 10px 3px rgb(119, 132, 241) ;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .button{
-    background-color:rgb(152,163,255);
-    border-radius: 5vh;
+    background: linear-gradient(120deg,#8c52ff,#00ffc9);
+    border-radius: 0.5vh;
     padding: 0vh 2vh;
     text-justify: center;
     text-align: center;
     font-weight: bold;
-    color: white ;
     font-size: 2.5vh;
-    border: none;
-    box-shadow: inset 0px 0px 10px 3px rgb(119, 132, 241) ;
+    border:  none;
+    transition-duration: 1s;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.active{
+    background: linear-gradient(120deg,#8c52ff,#00ffc9);
+    box-shadow: 0px 0px 10px 2px rgb(235, 233, 233);
+    border-radius: 1vh;
+    padding: 0vh 2vh;
+    text-justify: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2.5vh;
+    border:  none;
+    transition-duration: 1s;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .input{
-    background-color:white;
-    border-radius: 5vh;
+    background-color:rgb(0, 0, 0);
+    border-radius: 0.5vh;
     padding: 0vh 2vh;
     text-justify: center;
     text-align: center;
     font-weight: bold;
-    color: #4ABCDEff ;
+    color: rgb(255,0,207);
     font-size: 2.5vh;
     margin-right: 1.5vw;
     border: none;
     height: 6vh;
     text-decoration: none;
-    box-shadow: inset 0px 0px 10px 3px rgb(119, 132, 241);
+    box-shadow: inset 0px 0px 10px 1px rgb(255,0,207);
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.input:focus{
+    outline: none;
+}
+
+
 .button:hover{
     cursor: pointer;
-    animation: 2s  buttonAnimation ;
-    animation-iteration-count: infinite;
+    box-shadow: inset 0px 0px 10px 2px black;
+    border-radius: 1vh;
 }
 
-@keyframes buttonAnimation {
-    0%{
-        box-shadow: inset 0px 0px 10px 3px rgb(67, 157, 167);
-       
-    }
-    50%{ box-shadow:  1px 1px 3px  rgb(249, 250, 250);
-        background-color: white;
-        
-    }
-    60%{
-        color: #4ABCDEff;
-    }
-    70%{
-        box-shadow: inset 0px 0px 10px 3px rgb(67, 157, 167);  
-    }
 
-    85%{
-        color: white;
-    }
-}
 
 
 .buttonSubmit:hover{
-    animation: 2s infinite gradientAnim
+    cursor: pointer;
+    animation: border-animation 3s ease infinite;
 }
 
-@keyframes gradientAnim {
-    0%{
-        box-shadow: inset 0px 0px rgb(255, 255, 255);
-        
-    }
-    50%{
-        box-shadow: inset 80px 0px   white;
-    }
-    51%{
-        color: #4ABCDEff;
-        background-color: rgb(255, 255, 255);
-        box-shadow: none;
-       
-    }
+@keyframes border-animation {
 
-    90%{
-        box-shadow: inset 80px 0px  rgb(119, 132, 241);
-    }
+      50% {
+        box-shadow: inset 0px 0px 10px 2px black;
+        border-radius: 1vh;
+      }
 
-    100%{
-        box-shadow: inset 80px 0px  rgb(119, 132, 241);
-    }
 }

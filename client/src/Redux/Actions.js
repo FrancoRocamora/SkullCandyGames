@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios'
 
 export const ADD_FAVORITE = 'ADD_FAVORITE';
 export const REMOVE_FAVORITE = 'REMOVE_FAVORITE'
@@ -14,7 +14,24 @@ export const SORT_BY_RATING='SORT_BY_RATING'
 export const GET_BY_ID='GET_BY_ID'
 export const GET_SEARCH_RESULTS='GET_SEARCH_RESULTS'
 export const GET_MY_GAMES = 'GET_MY_GAMES'
+export const GET_SERVER_ERROR = 'GET_SERVER_ERROR'
+export const REMOVE_SERVER_ERROR = 'REMOVE_SERVER_ERROR'
 
+
+export const getError = (error) => {
+    return{
+        type: 'GET_SERVER_ERROR',
+        payload: error
+    }
+}
+
+export const removeError = () => {
+    return{
+        type: 'REMOVE_SERVER_ERROR',
+        payload: ''
+    }
+}
+ 
 export const getInfo =  () => {
    return dispatch => {
         axios.get('http://localhost:3001/videogames')
@@ -84,7 +101,6 @@ export const getGenres = () => {
         axios.get('http://localhost:3001/genres')
         .then(response =>
             {   
-                console.log(response.data)
                 dispatch({
                 type: 'GET_GENRES',
                 payload: response.data
@@ -165,10 +181,10 @@ export const removeFilter = (genre) => {
 }
 
 
-export const addFavorite = (character) =>{
+export const addFavorite = (game) =>{
     return{
         type: 'ADD_FAVORITE',
-        payload: character
+        payload: game
     }
 }
 

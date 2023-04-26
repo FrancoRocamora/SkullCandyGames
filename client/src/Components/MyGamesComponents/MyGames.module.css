@@ -1,32 +1,28 @@
 .background{
     display: flex;
     flex-direction: column;
-    background-image: url('../../Images/Background_Sakura_Tree.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat:no-repeat ;
-    background-attachment: fixed;
+    background-color: rgb(5, 5, 23);
     min-height: 100vh;
+    align-content: center;
+
 }
 
 
 .myGamesContainer{
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-evenly;
     padding: 3vh;
-
 }
 
 .button{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     border-radius: 0px;
     transition-duration: 1s;
-    background-color: rgba(152,163,255, 0.5);
-    border: 1px solid rgb(119, 132, 241, 0.2);
+    background-color: #00ffc846;
+    border: none;
     color: rgba(0,0,0,0.2);
     top: 10vh;
-    width: 20vw;
+    width: 15vw;
     right: 1vw;
     justify-self: center;
     height: 10vh;
@@ -34,14 +30,23 @@
 }
 
 .button:hover{
-    font-size: larger;
-    box-shadow: inset 0px 0px 2px 2px rgba(119, 132, 241, 1);
-    background-color: rgba(152,163,255, 0.7);
-    border: 1px solid rgb(119, 132, 241, 0.7);
+    font-size: large    ;
+    box-shadow: inset -2px -2px 5px 1px #000000;
+    background-color: #00ffc8cb;
+    border: none;
     color: rgba(0,0,0,1);
-    border-radius: 20px;
+    
 }
 
 .games{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     margin-top: 10vh;
+}
+
+.empty{
+    position: absolute;
+    top: 40vh;
+    right: 35vw;
+    color: white;
 }

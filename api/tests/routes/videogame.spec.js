@@ -1,24 +1,46 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const { expect } = require('chai');
-const session = require('supertest-session');
+const session = require('supertest');
 const app = require('../../src/app.js');
 const { Videogame, conn } = require('../../src/db.js');
 
 const agent = session(app);
-const videogame = {
-  name: 'Super Mario Bros',
-};
 
-describe('Videogame routes', () => {
-  before(() => conn.authenticate()
-  .catch((err) => {
-    console.error('Unable to connect to the database:', err);
-  }));
-  beforeEach(() => Videogame.sync({ force: true })
-    .then(() => Videogame.create(videogame)));
-  describe('GET /videogames', () => {
-    it('should get 200', () =>
-      agent.get('/videogames').expect(200)
-    );
-  });
-});
+describe('Tests for /videogames route', () => {
+    it('Should response with status 200', async () => {
+        const response = await agent.get('/videogames')
+        expect(response.statusCode).toEqual(200)
+    })
+    it('Should response with status 400', async() => {
+      const response = await agent.get('/test_route')
+      expect(response.statusCode).toEqual(404)
+    })
+    it('should response with status 200', async() => {
+      const response = await agent.get('/videogames/3498')
+      expect(response.statusCode).toEqual(200)
+    })
+    it('should response with one game', async() => {
+      const response = await agent.get('/videogames/3498')
+      expect(response._body.name).toEqual('Grand Theft Auto V')
+      expect(typeof response).toBe('object')
+    })
+    it('Should get a game by name', async() => {
+      const response = await agent.get('/videogames/game?name=grand theft auto')
+      expect(response.text).toContain('Grand Theft Auto')
+    })
+    it('Should respond with status 200', async() => {
+      const response = await agent.get('/videogames/game?name=mario')
+      expect(response.statusCode).toEqual(200)
+    })
+})
+
+
+describe('Tests for /Genres', () => {
+  it('Should respond with status 200', async () => {
+    const response = await agent.get('/Genres')
+    expect(response.statusCode).toEqual(200)
+  })
+  it('Should respond with status 400', async () => {
+    const response = await agent.get('/Genress')
+    expect(response.statusCode).toEqual(404)
+  })
+})

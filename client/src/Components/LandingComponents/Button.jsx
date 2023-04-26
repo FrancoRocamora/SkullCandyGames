@@ -4,8 +4,10 @@ import { useDispatch } from 'react-redux'
 import { getInfo, getGenres } from '../../Redux/Actions';
 
 function Button(props){
+    //Vars
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    //Functions
     const access = () => {
         props.getStarted()
         dispatch(getInfo())

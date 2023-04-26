@@ -1,6 +1,4 @@
 .genresBar{
- 
-  
     list-style: none;
     display: flex;
     justify-content:start;
@@ -9,7 +7,10 @@
     overflow-x:scroll;
     border-radius: 10px 10px 0px 10px;
     height: fit-content;
-    background-color: rgb(241,243,170);
+    box-shadow: inset 0px 0px 20px 3px #00ffc9;
+    background-color: #8c52ff;
+    background-size: 180% 180%;
+    animation: gradient-animation 10s ease infinite;
 }
 
 
@@ -23,11 +24,12 @@
 
 .genresBar::-webkit-scrollbar {
     height: 1.5vh;
+  
   }
   .genresBar::-webkit-scrollbar-track {
     
     border-radius: 10px;
-    background-color: rgb(185,255,195);
+    background-color: rgb(255,0,207);
   }
   
   
@@ -35,17 +37,18 @@
   .genresBar::-webkit-scrollbar-thumb {
     
     border-radius: 5px;
-    background-color: #45D1CF;
-    
+    background-color: #000000;
+ 
   }
   
   .genresBar::-webkit-scrollbar-thumb:hover {
-    background-color: #45D1CF;
+    
+    background-color: #0000007a;
     box-shadow: inset 0px 0px 1px 1px rgba(3, 3, 3, 0.2);
   }
   
   .genresBar::-webkit-scrollbar-thumb:active {
-    background-color: #45D1CF;
+    background-color: #0000007a;
   }
 
 .active{
@@ -58,24 +61,28 @@
   white-space:nowrap;
   width:fit-content;
   padding: 5vh 5vw;
-  background-color:white;
-  border-radius: 5vh;
+  background: linear-gradient(120deg,#00ffc8be, #000000b6);
+  border-radius: 2.5vh;
   text-justify: center;
   text-align: center;
   font-weight: bold;
   color: #45D1CF;
   font-size: 5vh;
   border: none;
+  cursor: pointer;
+  transition: background 1s;
   box-shadow: inset 0px 0px 10px 3px  rgba(3, 3, 3, 0.2);
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
 }
+
+
 .icon{
     margin-left: 2vw;
     cursor: pointer;
     height: 10vh;
 }
 .unActive{
+  cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -85,15 +92,33 @@
     white-space:nowrap;
     width:fit-content;
     padding: 5vh 5vw;
-    background-color:rgb(152,163,255);
-    border-radius: 5vh;
+    background-color:#00ffc800;
+    background: linear-gradient(120deg,#00ffc800, #000000b6);
+    border-radius: 1vh;
     text-justify: center;
     text-align: center;
     font-weight: bold;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 5vh;
     border: none;
-    box-shadow: inset 0px 0px 10px 3px  rgba(3, 3, 3, 0.2);
+    box-shadow: inset 0px 0px 20px 10px  rgba(3, 3, 3, 0.2);
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    transition: background-color, border-radius 1s;
+}
 
+.unActive:hover{
+  background-color: #00ffc8be;
+  border-radius: 2.5vh;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

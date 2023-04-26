@@ -1,16 +1,33 @@
 .Background{
     position:absolute;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    background-position: center;
-    background-image: url('../../Images/LandingBackground.jpg');
+    background-color: rgb(11,10,33);
     background-size: 100%;
     min-height: 100%;
     max-height: 100%;
     min-width: 100%;
     max-width: 100%;
-    background-attachment: fixed;
-    image-rendering: optimizeQuality;
-    background-repeat: no-repeat;
+
+}
+
+.pageName{
+    position: absolute;
+    background-color: #f3ec78;
+    background-image: linear-gradient(360deg, #555e55, #0b1cb4);
+    background-size: 120% 120%;
+    -webkit-text-fill-color: transparent; 
+    -webkit-background-clip: text;
+    background-clip: text;
+    top: 20vh;
+    left: 20vw;   
+    font-size: 80pt;
+    width: fit-content;
+}
+
+
+
+.devName{
+    position: absolute;
+    bottom: 1vh;
+    right: 1vw;
+    color: rgba(255, 255, 255, 0.726);
 }

@@ -17,39 +17,51 @@
     align-items: center;
     margin: 5vh 1vh 1vh 1vh;
     border: 1px solid black;
-    background-color:rgb(241,243,170) ;
-    box-shadow:  0px 0px 10px 3px black;
+    background: linear-gradient(280deg,#8c52ff,#000000,#00ffc9);
+    background-size: 200% 200%;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     transition-duration: 0.5s;
+    
 }
 
 .eachGame:hover {
     box-shadow: inset 0px 0px 50px 50px rgba(3, 3, 3, 0.2);
     background-color: rgb(152,163,255);
     color: #fff;
-    
+    animation: 8s ease infinite gradient
 }
 
 .eachGame:hover .genresContainer{
     box-shadow: inset 0px 0px 50px 50px rgba(3, 3, 3, 0.2);
+    
 }
 
+.favs{
+    height: 4vh;
+}
 
+.favBtn{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
 .gameName{
     font-size: large;
     font-weight: bolder;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     box-shadow: inset 0px 0px 50px 50px rgba(3, 3, 3, 0.2);
-    border-radius: 15px;
+    border-radius: 1vh;
     text-align: center;
     min-width: fit-content;
     padding: 0vh 0.7vw;
     margin: 1vh 0vw;
+    cursor: pointer;
 }
 
 .genresName{
     height: fit-content;
     margin-bottom: 1vh;
+    
 }
 
 .genresContainer{
@@ -57,8 +69,21 @@
     flex-direction: column;
     align-items: center;
     width: 20vw;
-    box-shadow: inset 0px 0px 2vw 1px rgb(152,163,255);
-    border-radius: 10px;
-    border: 1px solid rgb(152,163,255);
+    box-shadow: inset 0px 0px 5px 1px rgb(0, 0, 0);
+    border-radius: 1vh;
+    border: 1px solid #00ffc9;
     margin: 1vh 0vw;
+}
+
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+    }
 }

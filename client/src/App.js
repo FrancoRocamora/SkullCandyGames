@@ -10,6 +10,8 @@ import { useState } from 'react';
 import MyGamesView from './Views/MyGamesView';
 import PostGameView from './Views/PostGameView';
 import SearchByNameView from './Views/SearchByNameView';
+import ErrorView from './Views/ErrorView'
+import SuccessView from './Views/SuccessView'
 function App() {
   const [login, setLogin] = useState(false)
   const getStarted = () => {
@@ -28,6 +30,8 @@ function App() {
       <Route path='/myGames' element={<MyGamesView></MyGamesView>}></Route>
       <Route path='/post' element={<PostGameView></PostGameView>}></Route>
       <Route path='/name/:name' element={<SearchByNameView></SearchByNameView>}></Route>
+      <Route path='/error' element={<ErrorView/>}></Route>
+      <Route path='/success' element={<SuccessView/>}></Route>
     </Routes>
     </div>
   );

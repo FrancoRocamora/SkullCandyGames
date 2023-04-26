@@ -1,9 +1,11 @@
 import axios from 'axios'
 
+
+
 export const validateGameName = (form,error,setError) => {
-    if(!form.name) {setError({...error, name: 'Hey, come back, need a name here!'})}
+    if(!form.name) {setError({...error, name: 'Name required'})}
     else {
-        if(form.name.length >= 30) {setError({...error, name: 'Oops, forget to warn you, max chars: 30'})}
+        if(form.name.length >= 30) {setError({...error, name: 'Max characters: 30'})}
         else {
             setError({...error, name: ''})
         }
@@ -12,11 +14,14 @@ export const validateGameName = (form,error,setError) => {
 
 
 export const validateDescription =  (form,error,setError) => {
-    if(!form.description) {setError({...error, description: 'Stop doing that. What is your game about??'})}
+    if(!form.description) {setError({...error, description: 'Description required'})}
     else {
-        if(form.description.length > 300) setError({...error, description: "C'mon man, don't make me read that. Max chars: 300"})
+        if(form.description.length > 300) setError({...error, description: "Max chars in description: 300"})
         else {
-            setError({...error, description: ''})
+            if(form.description.length < 30) setError({...error, description: "Min chars in description: 30"})
+            else {
+                setError({...error, description: ''})
+            }
         }
     }
 }
@@ -24,17 +29,16 @@ export const validateDescription =  (form,error,setError) => {
 
 export const validateRelease = (form, error, setError) => {
     if(!form.released) {
-        setError({...error, released: 'Wait... Is not even released?'})
+        setError({...error, released: 'Select a release date'})
     } else {
         setError({...error, released: ''})
     }
-
 }
 
 
 export const validatePlayTime = (form, error, setError) => {
     if(!form.playtime){
-        setError({...error, playtime: 'Not even a hour of game? Devs nowdays...'})
+        setError({...error, playtime: 'Hours of gameplay are required'})
     } else {
         setError({...error, playtime: ''})
     }
@@ -44,29 +48,33 @@ export const validatePlayTime = (form, error, setError) => {
 export const validateImage =(form, error, setError) => {
     const urlPattern = new RegExp(/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi);
     if(!form.background_image){
-        setError({...error, background_image: 'WHY ARE YOU LIKE THIS?'})
+        setError({...error, background_image: 'Image is required'})
     } else {
-        if(!urlPattern.test(form.background_image)) setError({...error, background_image: 'Sigh... Url, please....'})
+        if(!urlPattern.test(form.background_image)) setError({...error, background_image: 'Inser a valid URL'})
         else  setError({...error, background_image: ''})
     }
 }
 
 export const validateStores = (form, error, setError) => {
-    if(!form.stores){ setError({...error, stores: ' '})}
+    if(!form.platforms){ setError({...error, platforms: 'Include at least one'})}
     else{
-         setError({...error, stores: ''})
+        if(form.platforms.includes(",") || form.platforms.includes('.')){
+            setError({...error, platforms: 'Dont use commas or dots '})
+        }else {
+            setError({...error, platforms: ''})
+        }
     }
 }
 
 export const validateDevs = (form, error, setError) => {
-    if(!form.developer){setError({...error, developer: 'Someone made te game!'})}
+    if(!form.developer){setError({...error, developer: 'Devs/company name is required'})}
     else{
          setError({...error, developer: ''})
     }
 }
 
 export const validateGenres = (form, error, setError) => {
-    if(!form.genres.length){ setError({...error, genres: 'Select at leat one'})}
+    if(!form.genres.length){ setError({...error, genres: 'Select at least one genre'})}
     else{
          setError({...error, genres: ''})
     }
@@ -74,13 +82,20 @@ export const validateGenres = (form, error, setError) => {
 
 
 export const validateTags = (form, error, setError) => {
-    if(!form.tags){ setError({...error, tags: 'No tags?'})}
+    if(!form.tags){ setError({...error, tags: 'Include at leats one tag'})}
     else{
-         setError({...error, tags: ''})
+        if(form.tags.includes(",") || form.tags.includes('.')){
+            setError({...error, tags: 'Dont use commas or dots'})
+        }else {
+
+            setError({...error, tags: ''})
+        }
     }
 }
 
 
 export const sendPost =  async (form, func, param) => {
-    await axios.post('http://localhost:3001/videogames', form)
-    await func(param())}
+    const response = await axios.post('http://localhost:3001/videogames', form)
+    await func(param())
+    return response
+}

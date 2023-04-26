@@ -1,4 +1,4 @@
-import SearchedGames from "../Components/SearchedGames"
+import SearchedGames from "../Components/SearchGamesComponents/SearchedGames"
 
 function SearchByNameView (){
     return(

@@ -22,10 +22,21 @@ import Shooter from '../../Images/ShooterIcon.png'
 import Simulation from '../../Images/SimulationIcon.png'
 import Sports from '../../Images/SportsIcon.png'
 import Strategy from '../../Images/StrategyIcon.png'
+
 function FilterBar(){
+    //Vars and states
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const activeFilter = useSelector(initialState => initialState.activeFilter)
+    const arrayOfIcons = [
+        Action, Adventure, Arcade,
+        Board, Card, Casual, Education, Family, Fight, Indie, Multiplayer, Plataformer,
+        Puzzle, Rpg, Racing, Shooter, Simulation, Sports, Strategy
+        ]
+    const genres = useSelector(initialState => initialState.gamesGenres)
+    genres[0]?.sort()
+
+    //Functions
     const filterBy = (genre) => {
         if(activeFilter.includes(genre)){
             dispatch(removeFilteredGames(genre))
@@ -36,25 +47,17 @@ function FilterBar(){
             navigate('/filterBy')
         }
     }
-    const arrayOfIcons = [Action, Adventure, Arcade,
-        Board, Card, Casual, Education, Family, Fight, Indie, Multiplayer, Plataformer,
-        Puzzle, Rpg, Racing, Shooter, Simulation, Sports, Strategy]
-  
-    const genres = useSelector(initialState => initialState.gamesGenres)
-    genres[0]?.sort()
     return(
-        
-            <ul className={styles.genresBar}>
-            {genres[0]?.map((genre) =>{
-            return (
-                    <li key={genre} className={styles.li}>
-                    <a className={(activeFilter.includes(genre)) ? styles.active : styles.unActive} onClick={() => filterBy(genre)}>{genre}
+     <ul className={styles.genresBar}>
+        {genres[0]?.map((genre) =>{
+        return (
+            <li key={genre} className={styles.li}>
+                <a className={(activeFilter.includes(genre)) ? styles.active : styles.unActive} onClick={() => filterBy(genre)}>{genre}
                     <img className={styles.icon}src={`${arrayOfIcons.shift()}`}/>
-                    </a>
-                </li>)
-    }) }
-            </ul>
-        
+                </a>
+            </li>)
+        })}
+     </ul> 
     )
 }
 

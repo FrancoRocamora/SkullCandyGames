@@ -6,14 +6,15 @@ validateDevs, validateGenres, validateTags, sendPost,
 validatePlayTime} from "./Functions"
 import { useNavigate } from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux'
-import { getInfo } from '../../Redux/Actions'
+import { getInfo, getError } from '../../Redux/Actions'
 
 function PostGame(){
+
+    //Vars and States
     const dispatch = useDispatch()
     const items = useSelector(initialState => initialState.gamesGenres)
     const navigate = useNavigate()
     const [lastError, setLastError] = useState('')
-
     const [form, setForm ]= useState({
         name: '',  
         description: '',
@@ -21,9 +22,8 @@ function PostGame(){
         rating: '',
         background_image:'',
         platforms:'',
-        stores: '',
         developer: '',
-        genres: [],
+        genres: '',
         tags:'',
         playtime: '',
     })
@@ -34,37 +34,40 @@ function PostGame(){
         rating: '',
         background_image: '',
         platforms: '',
-        stores: '',
         developer: '',
         genres: '',
         tags:'',
         playtime: '',
     
     })
+
+    //Functions
     function handleSubmit (event) {
         event.preventDefault()
-        if(true){ // FALTA VERIFICACION
-            sendPost(form, dispatch, getInfo).then(
-            navigate('/home')
-            )
+        const checkForErrors = Object.values(error).map(each => each == '')
+        if(!checkForErrors.includes(false)){
+        const response = sendPost(form, dispatch, getInfo)
+        .then(
+               navigate('/success')
+        )
+        .catch(response => {
+            dispatch(getError(response))
+            navigate('/error')}
+        )
         }else{
             setLastError('Fill the form')
             return
         }
- 
     }
 
-   
-
-    const  onCheck  =  (event) => {
+    const  onCheck  = (event) => {
         const property = event.target.name;
         const value = event.target.value
         if(form.genres.includes(value)){
             setForm({...form, [property]: form.genres.filter(genre => genre !== value)})
         } else {
             setForm({...form, [property]: [...form.genres, value]})
-        }
-        
+        }    
     }
 
     useEffect(() => {
@@ -84,7 +87,7 @@ function PostGame(){
                 return validateRelease({...form, [property]: value}, error, setError)
             case 'background_image':
                 return  validateImage({...form, [property]: value}, error, setError)
-            case 'stores': 
+            case 'platforms': 
                 return validateStores({...form, [property]: value}, error, setError)
             case 'developer':
                 return validateDevs({...form, [property]: value}, error, setError)
@@ -99,35 +102,33 @@ function PostGame(){
     return(
         <form className={styles.form}>
             <div className={styles.container}>
-                <label className={styles.labels} htmlFor="name">Name your game: </label>
+                <label className={styles.labels} htmlFor="name">Name of the game</label>
                     <input  className={styles.inputs}type='text' value={form?.name} name='name' onChange={handleChange}></input>
                         <p className={styles.errors}>{error.name}</p>
-                <label className={styles.labels} htmlFor='description'>Description: </label>
+                <label className={styles.labels} htmlFor='description'>Description</label>
                     <textarea className={styles.inputs} name='description' value={form.description} onChange={handleChange}></textarea>
                         <p className={styles.errors}>{error.description}</p>
-                <label className={styles.labels} htmlFor='released'>This will fill automatically</label>
-                    <input className={styles.inputs} type='text' name='released' value={form.released} onChange={handleChange}></input>
+                <label className={styles.labels} htmlFor='released'>Release date</label>
+                    <input className={styles.inputs} type='date' name='released' value={form.released} onChange={handleChange}></input>
                         <p className={styles.errors}>{error.released}</p>
-                <label className={styles.labels} htmlFor='background_image'>Url image of the game: </label>
+                <label className={styles.labels} htmlFor='background_image'>Url image of the game</label>
                     <input className={styles.inputs} type='text' name='background_image' value={form.background_image} onChange={handleChange} ></input>
                         <p className={styles.errors}>{error.background_image}</p>
-                <label className={styles.labels} htmlFor='rating'>This will Start on 0</label>
-                    <input className={styles.inputs} type='text' name='rating' onChange={handleChange}/>
-                <label className={styles.labels} htmlFor='playtime'>Aprox time of play: </label>
-                        <input className={styles.inputs}  value={form.playtime}type='text' name='playtime' onChange={handleChange}></input>
+                <label className={styles.labels} htmlFor='playtime'>Time of gameplay</label>
+                        <input className={styles.inputs}  value={form.playtime}type='number' name='playtime' onChange={handleChange}></input>
                             <p className={styles.errors}>{error.playtime}</p>
-                <label className={styles.labels} htmlFor='stores'>Where can we buy it? </label>
-                    <input className={styles.inputs} type='text' name='stores' value={form.stores} onChange={handleChange}></input>
-                        <p className={styles.errors}>{error.stores}</p>
-                <label className={styles.labels} htmlFor='developer'>Developer or company name: </label>
+                <label className={styles.labels} htmlFor='platforms'>Platforms where we can play it</label>
+                    <input className={styles.inputs} type='text' name='platforms' value={form.platforms} onChange={handleChange}></input>
+                        <p className={styles.errors}>{error.platforms}</p>
+                <label className={styles.labels} htmlFor='developer'>Developer or company name</label>
                     <input className={styles.inputs} type='text' value={form.developer} name='developer' onChange={handleChange}></input>
                         <p className={styles.errors}>{error.developer}</p>
-                            <label className={styles.labels} htmlFor='tags'>Add some tags!</label>
-                                <input className={styles.inputs}type='text' name='tags' onChange={handleChange}></input>
-                                    <p className={styles.errors}>{error.tags}</p>
-                        <p>Select a genre</p>
-                        <p className={styles.errors}>{error.genres}</p>
-                        <div className={styles.genresContainer}>
+                <label className={styles.labels} htmlFor='tags'>Add some tags</label>
+                        <input className={styles.inputs}type='text' name='tags' onChange={handleChange}></input>
+                                <p className={styles.errors}>{error.tags}</p>
+                <p className={styles.labels}>Select a genre</p>
+                <p className={styles.errors}>{error.genres}</p>
+                <div className={styles.genresContainer}>
                    {items[0].map(genre => {
                        return(
                         <span className={styles.eachGenre}>
@@ -136,9 +137,9 @@ function PostGame(){
                         </span>
                        ) 
                     })}
-                    </div>
-            <button className = {styles.submitBtn}type='submit' onClick={handleSubmit}>Post your game!</button>
-            <p className={styles.finalError}>{lastError}</p>
+                </div>
+                <button className = {styles.submitBtn}type='submit' onClick={handleSubmit}>Post your game!</button>
+                <p className={styles.finalError} className={styles.errors}>{lastError}</p>
             </div>
         </form>
     )
