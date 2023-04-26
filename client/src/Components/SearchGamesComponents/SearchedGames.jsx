@@ -17,8 +17,10 @@ function SearchedGames(){
       <div className={styles.container}>
         <div className={styles.gamesContainer}>
           {games?.map(game => {
+            console.log(game)
             return (
                 <Game 
+                game={game}
                 id={game.id}
                 key={game.id}
                 name={game.name}

@@ -16,6 +16,7 @@ function MyGames(){
                     myGames.map(each => {
                         return(               
                         <Game
+                         game={each}
                             id={each.id}
                             key={each.id}
                             name = {each.name}
